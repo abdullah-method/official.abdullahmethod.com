@@ -306,6 +306,32 @@
             color: var(--primary);
         }
         
+        .credit-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 1rem;
+        }
+        
+        .credit-content a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .credit-content a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+        
+        .credit-content svg {
+            margin-left: 3px;
+            width: 13px;
+            height: 20px;
+        }
+        
         .particles {
             position: fixed;
             top: 0;
@@ -494,6 +520,11 @@
             .section-title::after {
                 width: 20px;
             }
+            
+            .credit-content {
+                flex-direction: column;
+                gap: 10px;
+            }
         }
     </style>
 </head>
@@ -676,8 +707,17 @@
                 <a href="#" class="footer-link">Terms of Service</a>
                 <a href="#" class="footer-link">Contact</a>
             </div>
-            <p>© 2023 Abdullah Method. All Rights Reserved.</p>
-            <p>Connect with me across all platforms for updates and resources</p>
+            
+            <div class="credit-content">
+                © <span id="getYear"></span>
+                <a href="https://abdullahcoded.blogspot.com/">ᗩᗷᗪᑌᒪᒪᗩᕼ ᑕᗝᗪᗴᗪ</a>
+                <svg color="#3b5998" viewBox="0 0 24 24">
+                    <path d="M23,12L20.56,9.22L20.9,5.54L17.29,4.72L15.4,1.54L12,3L8.6,1.54L6.71,4.72L3.1,5.53L3.44,9.21L1,12L3.44,14.78L3.1,18.47L6.71,19.29L8.6,22.47L12,21L15.4,22.46L17.29,19.28L20.9,18.46L20.56,14.78L23,12M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z" fill="#3b5998"/>
+                </svg>
+                All rights reserved
+            </div>
+            
+            <p style="margin-top: 1rem;">Connect with me across all platforms for updates and resources</p>
         </footer>
     </div>
 
@@ -739,6 +779,11 @@
                     document.documentElement.style.setProperty('--music', '#5b2c6f');
                 }
             });
+            
+            // Set current year in footer
+            const d = new Date();
+            const n = d.getFullYear();
+            document.getElementById('getYear').innerHTML = n;
         });
         
         // Open link function
